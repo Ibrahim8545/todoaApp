@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/Hom.dart';
+import 'package:flutter/services.dart';
+import 'package:todo_app/news_app/news_layout.dart';
+
 
 void main() {
   runApp( MyApp());
@@ -13,7 +15,32 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:HomeScreen() ,
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme:const  AppBarTheme(
+  
+         systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: Colors.black,
+          statusBarIconBrightness: Brightness.light,
+         ),
+          backgroundColor: Colors.white,
+          elevation: 15.0,
+          titleTextStyle: TextStyle(
+            color: Colors.red,
+            fontWeight: FontWeight.bold,
+            fontSize: 20.0,
+          ),
+
+          
+        ),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: Colors.deepOrange,
+          elevation: 30.0
+
+        ),
+      ),
+      home:NewsApp(),
      
     );
   }
